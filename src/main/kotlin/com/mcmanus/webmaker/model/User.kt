@@ -3,11 +3,10 @@ package com.mcmanus.webmaker.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.mongodb.core.mapping.Document
 
-@Document
-class User {
-
+@Document(collection = "user")
+data class User (
     @Id
-    var id: Long = 0;
-    var mail: String = "";
-    var phone: String = "";
-}
+    val id: Long,
+    val mail: String,
+    val phone: String
+)
