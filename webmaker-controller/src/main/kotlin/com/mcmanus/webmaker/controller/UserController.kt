@@ -15,7 +15,7 @@ class UserController {
     fun getLeaders(): List<String> = service.leaders().stream().map { it.mail }.toList()
 
     @PostMapping("/user/{handle}/score")
-    fun postPlayerScore(@PathVariable handle: String, @RequestBody points: String) : String {
+    fun postPlayerScore(@PathVariable handle: String, @RequestBody points: String): String {
         return "$handle now has a total score of $points."
     }
 

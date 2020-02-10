@@ -6,4 +6,5 @@ interface SiteService {
 
     fun getAll(userId : Long) : List<Site>
     fun create(site : Site): Site
+    fun deleteAll(): Unit
 }

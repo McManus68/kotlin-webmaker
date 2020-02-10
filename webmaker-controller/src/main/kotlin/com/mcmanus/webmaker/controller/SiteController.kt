@@ -16,5 +16,8 @@ class SiteController {
     fun getAll(): List<Site> = service.getAll(1L)
 
     @PostMapping
-    fun create(@RequestBody site: Site) : Site = service.create(site);
+    fun create(@RequestBody site: Site): Site = service.create(site);
+
+    @DeleteMapping("purge")
+    fun deleteAll() = service.deleteAll()
 }

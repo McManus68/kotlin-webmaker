@@ -14,4 +14,5 @@ class SiteServiceImpl : SiteService {
 
     override fun getAll(userId: Long): List<Site> = repository.findByUserId(userId)
     override fun create(site: Site): Site = repository.save(site)
+    override fun deleteAll() = repository.deleteAll()
 }
