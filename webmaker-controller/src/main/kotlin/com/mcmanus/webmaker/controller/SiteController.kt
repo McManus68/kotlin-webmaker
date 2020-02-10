@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*
 class SiteController {
 
     @Autowired
-    lateinit var service : SiteService
+    lateinit var service: SiteService
 
     @GetMapping
     fun getAll(): List<Site> = service.getAll(1L)
