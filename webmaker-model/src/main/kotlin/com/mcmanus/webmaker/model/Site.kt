@@ -1,13 +1,17 @@
 package com.mcmanus.webmaker.model
 
 import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.DBRef
 import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "site")
 data class Site (
-    @Id var id: Long,
+    @Id
+    var id: Long,
     var name: String,
     var title: String,
-    var userId: Long
+    var userId: Long,
+    @DBRef
+    var pages: List<Page>
 )
 

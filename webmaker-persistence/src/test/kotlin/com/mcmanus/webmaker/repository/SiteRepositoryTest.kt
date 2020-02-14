@@ -1,8 +1,7 @@
 package com.mcmanus.webmaker.repository
 
-import com.mongodb.BasicDBObjectBuilder
-import com.mongodb.DBObject
-import org.assertj.core.api.Assertions
+import com.mcmanus.webmaker.model.Site
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.SpringBootConfiguration
@@ -19,14 +18,12 @@ class SiteRepositoryTest {
     lateinit var mongoTemplate: MongoTemplate
 
     @Test
-    fun test() { // given
-        val objectToSave = BasicDBObjectBuilder.start()
-                .add("key", "value")
-                .get()
-        // when
-        mongoTemplate.save(objectToSave, "collection")
-        // then
-        Assertions.assertThat(mongoTemplate.findAll(DBObject::class.java, "collection")).extracting("key")
-                .containsOnly("value")
+    fun should_be_able_to_create_a_simple_site() {
+        val site = Site(1L, "test", "Site title", 1L, emptyList())
+
+        mongoTemplate.save(site, "site")
+
+        assertThat(mongoTemplate.findAll(Site::class.java, "site")).extracting("title")
+                .containsOnly("Site title")
     }
 }
