@@ -16,10 +16,5 @@ class SiteModelListener : AbstractMongoEventListener<Site>() {
     @Autowired
     lateinit var sequenceService: SequenceService
 
-    override fun onBeforeConvert(event: BeforeConvertEvent<Site>) {
-        if (event.source.id < 1) {
-            event.source.id = sequenceService.generate(sequenceName)
-        }
-    }
 
 }

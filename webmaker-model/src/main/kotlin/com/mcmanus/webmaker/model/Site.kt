@@ -6,12 +6,12 @@ import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "site")
 data class Site (
-    @Id
-    var id: Long,
-    var name: String,
-    var title: String,
-    var userId: Long,
-    @DBRef
+        @Id
+    var id: String,
+        var name: String,
+        var title: String,
+        var description: String,
+        @DBRef
     var pages: List<Page>
 )
 

@@ -13,7 +13,7 @@ class SiteController {
     lateinit var service: SiteService
 
     @GetMapping
-    fun getAll(): List<Site> = service.getAll(1L)
+    fun getAll(): List<Site> = service.getAll()
 
     @PostMapping
     fun create(@RequestBody site: Site): Site = service.create(site);
