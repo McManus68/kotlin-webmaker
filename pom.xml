@@ -13,7 +13,7 @@
 	<artifactId>parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Web Maker</name>
-	<description>Website Builder</description>
+	<description>Website BuilderDesign</description>
 	<packaging>pom</packaging>
 
 	<repositories>
