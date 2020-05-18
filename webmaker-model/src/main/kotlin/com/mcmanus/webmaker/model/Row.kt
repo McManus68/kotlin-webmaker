@@ -1,6 +1,7 @@
 package com.mcmanus.webmaker.model
 
 data class Row(
-        var blocks: List<Block>
+        var type: String = "ROW",
+        var blocks: List<Block> = emptyList()
 )
 

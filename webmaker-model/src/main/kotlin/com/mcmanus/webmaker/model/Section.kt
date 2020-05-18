@@ -1,8 +1,8 @@
 package com.mcmanus.webmaker.model
 
-data class Section(
-        var type: String,
-        var params: Map<String, String>?,
-        var rows: List<Row>?
+open class Section(
+        var type: SectionType,
+        var params: Map<String, Any> = emptyMap(),
+        var rows: List<Row> = emptyList()
 )
 
