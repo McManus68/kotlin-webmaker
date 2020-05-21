@@ -8,6 +8,6 @@ data class BlockTypeConfig(
         @Id
         var id: String,
         var type: BlockType = BlockType.BLOCK_SIMPLE_CONTENT,
-        val params: List<Param> = emptyList()
+        val params: List<ParamConfig> = emptyList()
  )
 

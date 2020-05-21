@@ -3,6 +3,7 @@ package com.mcmanus.webmaker.service.impl
 import com.mcmanus.webmaker.model.Page
 import com.mcmanus.webmaker.model.Site
 import com.mcmanus.webmaker.persistence.repository.SiteRepository
+import com.mcmanus.webmaker.service.DummyContentService
 import com.mcmanus.webmaker.service.SiteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -12,6 +13,9 @@ class SiteServiceImpl : SiteService {
 
     @Autowired
     lateinit var repository: SiteRepository
+
+    @Autowired
+    lateinit var dummyContentService: DummyContentService
 
     override fun getAll(): List<Site> {
         val sites: List<Site> = repository.findAll()
@@ -37,6 +41,8 @@ class SiteServiceImpl : SiteService {
         return repository.save(site)
     }
 
+    override fun update(site: Site): Site = repository.save(site)
+
     override fun delete(id: String) = repository.deleteById(id)
 
     override fun getInfo(id: String): Site {
@@ -45,7 +51,9 @@ class SiteServiceImpl : SiteService {
         return site
     }
 
-    override fun getPages(id: String): List<Page>? = repository.findById(id).get().pages
-
-
+    override fun getPages(id: String, dummy: Boolean): List<Page>? {
+        val pages =  repository.findById(id).get().pages.toMutableList()
+        if (dummy) pages.add(dummyContentService.createDummyPage())
+        return pages
+    }
 }

@@ -1,13 +1,12 @@
 package com.mcmanus.webmaker.model
 
 data class Animation(
-        var active: Boolean?,
-        var type: String?,
-        var delay: Int?,
-        var left: Boolean?,
-        var right: Boolean?,
-        var top: Boolean?,
-        var bottom: Boolean?
+        var type: String = "",
+        var delay: Int = 0,
+        var left: Boolean = false,
+        var right: Boolean = false,
+        var top: Boolean = false,
+        var bottom: Boolean = false
 )
 
 

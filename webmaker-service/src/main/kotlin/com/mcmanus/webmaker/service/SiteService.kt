@@ -9,6 +9,7 @@ interface SiteService {
     fun get(id: String) : Site
     fun getInfo(id: String) : Site
     fun create(site : Site): Site
+    fun update(site : Site): Site
     fun delete(id: String): Unit
-    fun getPages(id: String) : List<Page>?
+    fun getPages(id: String, dummy: Boolean) : List<Page>?
 }

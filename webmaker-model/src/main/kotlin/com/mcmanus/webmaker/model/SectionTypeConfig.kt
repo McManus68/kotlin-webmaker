@@ -9,6 +9,6 @@ data class SectionTypeConfig(
         var id: String,
         var type: SectionType = SectionType.SECTION_CUSTOM,
         var standalone: Boolean = false,
-        val params: List<Param> = emptyList()
+        val params: List<ParamConfig> = emptyList()
  )
 
