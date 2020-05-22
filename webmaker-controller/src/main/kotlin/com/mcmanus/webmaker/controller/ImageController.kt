@@ -38,7 +38,7 @@ class ImageController {
         return service.get(siteId, imageName, true)
     }
 
-    @GetMapping("/list/{siteId}")
+    @GetMapping("/{siteId}")
     fun getAll(@PathVariable siteId : String) : List<Image> {
         val baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString()
         return service.getAll(siteId, baseUrl)

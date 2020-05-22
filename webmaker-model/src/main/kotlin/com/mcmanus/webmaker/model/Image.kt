@@ -1,10 +1,10 @@
 package com.mcmanus.webmaker.model
 
-val apiImage = "/api/images/";
+const val API_IMAGE = "/api/images/";
 
 class Image(baseUrl: String, siteId: String, fileName: String?) {
-        var original: String = "$baseUrl$apiImage$siteId/$fileName"
-        var thumbnail: String = "$baseUrl$apiImage$siteId/thumbnail/$fileName"
+        var original: String = "$baseUrl$API_IMAGE$siteId/$fileName"
+        var thumbnail: String = "$baseUrl$API_IMAGE$siteId/thumbnail/$fileName"
         var name: String? = fileName
 }
 
