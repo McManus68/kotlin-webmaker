@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document(collection = "site")
 data class Site(
         @Id
-        var id: String = "",
+        var id: String?,
         var name: String,
         var title: String,
         var description: String = "",

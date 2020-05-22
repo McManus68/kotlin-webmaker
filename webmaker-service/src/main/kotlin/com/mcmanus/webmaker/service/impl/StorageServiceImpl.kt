@@ -44,7 +44,7 @@ class StorageServiceImpl : StorageService {
 
     override fun getAll(siteId: String, baseUrl: String): List<Image> {
         val siteFolder = File("$path/$siteId")
-        val files = siteFolder.listFiles(FileFilter { it.isFile }) ?: return emptyList()
+        val files = siteFolder.listFiles(FileFilter { it.isFile && !it.isHidden }) ?: return emptyList()
         return files.map { image -> Image(baseUrl, siteId, image.name) }
     }
 
