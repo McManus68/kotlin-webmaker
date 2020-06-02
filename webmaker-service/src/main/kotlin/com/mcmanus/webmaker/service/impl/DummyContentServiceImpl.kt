@@ -23,7 +23,7 @@ class DummyContentServiceImpl : DummyContentService {
         val row = Row("row", listOf(block))
 
         val section = Section(SectionType.SECTION_CUSTOM,
-                mapOf("title" to "t", "subtitle" to "s", "image" to "i", "overlay" to "o") , listOf(row))
+                mapOf("title" to "t", "subtitle" to "s", "image" to "i", "overlay" to "o", "display" to "Square") , listOf(row))
 
         return Page("DUMMY_PAGE", "slug", "description", listOf(section));
     }
