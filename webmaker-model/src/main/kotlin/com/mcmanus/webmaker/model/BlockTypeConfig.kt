@@ -6,7 +6,8 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document(collection = "block_type_config")
 data class BlockTypeConfig(
         @Id
-        var id: String,
+        var id: String?,
+        var scope: ScopeType = ScopeType.PAGE,
         var type: BlockType = BlockType.BLOCK_SIMPLE_CONTENT,
         val params: List<ParamConfig> = emptyList()
  )
