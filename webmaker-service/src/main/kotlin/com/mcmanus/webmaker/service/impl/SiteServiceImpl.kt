@@ -1,6 +1,5 @@
 package com.mcmanus.webmaker.service.impl
 
-import com.mcmanus.webmaker.model.Page
 import com.mcmanus.webmaker.model.Site
 import com.mcmanus.webmaker.persistence.repository.SiteRepository
 import com.mcmanus.webmaker.service.DummyContentService
@@ -44,16 +43,4 @@ class SiteServiceImpl : SiteService {
     override fun update(site: Site): Site = repository.save(site)
 
     override fun delete(id: String) = repository.deleteById(id)
-
-    override fun getInfo(id: String): Site {
-        val site: Site = repository.findById(id).get();
-        site.pages = emptyList()
-        return site
-    }
-
-    override fun getPages(id: String, dummy: Boolean): List<Page>? {
-        val pages =  repository.findById(id).get().pages.toMutableList()
-        if (dummy) pages.add(dummyContentService.createDummyPage())
-        return pages
-    }
 }

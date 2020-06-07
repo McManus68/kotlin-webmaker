@@ -1,6 +1,5 @@
 package com.mcmanus.webmaker.controller
 
-import com.mcmanus.webmaker.model.Page
 import com.mcmanus.webmaker.model.Site
 import com.mcmanus.webmaker.service.SiteService
 import org.springframework.beans.factory.annotation.Autowired
@@ -25,12 +24,6 @@ class SiteController {
 
     @GetMapping("/{id}")
     fun get(@PathVariable id : String): Site = service.get(id)
-
-    @GetMapping("/{id}/pages")
-    fun getPages(@PathVariable id : String): List<Page>? = service.getPages(id, true)
-
-    @GetMapping("/{id}/info")
-    fun getInfo(@PathVariable id : String): Site = service.getInfo(id)
 
     @PostMapping
     fun create(@RequestBody site: Site): Site = service.create(site)
