@@ -2,7 +2,6 @@ package com.mcmanus.webmaker.service.impl
 
 import com.mcmanus.webmaker.model.Site
 import com.mcmanus.webmaker.persistence.repository.SiteRepository
-import com.mcmanus.webmaker.service.DummyContentService
 import com.mcmanus.webmaker.service.SiteService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -12,9 +11,6 @@ class SiteServiceImpl : SiteService {
 
     @Autowired
     lateinit var repository: SiteRepository
-
-    @Autowired
-    lateinit var dummyContentService: DummyContentService
 
     override fun getAll(): List<Site> {
         val sites: List<Site> = repository.findAll()
