@@ -23,6 +23,7 @@ class StorageServiceImpl : StorageService {
     lateinit var thumbnailService: ThumbnailService
 
     val thumbnailFolder = "thumbnail"
+    val thumbnailPrefix = "thumbnail-"
 
     override fun store(siteId: String, file: MultipartFile, baseUrl: String) : Image {
         // Create site folder if needed - idem for thumbnails folder
@@ -33,7 +34,7 @@ class StorageServiceImpl : StorageService {
         if (!thumbnailFolder.exists()) thumbnailFolder.mkdir()
 
         // Save Thumbnail
-        val thumbnailImage = FileOutputStream(thumbnailFolder.absolutePath + '/' + file.originalFilename)
+        val thumbnailImage = FileOutputStream(thumbnailFolder.absolutePath + '/' + thumbnailPrefix + file.originalFilename)
         thumbnailImage.write(thumbnailService.generate(file).toByteArray())
 
         // Save main image
@@ -49,7 +50,7 @@ class StorageServiceImpl : StorageService {
     }
 
     override fun get(siteId: String, imageName: String, thumbnail: Boolean): ByteArray? {
-        val file = if (thumbnail)  File("$path/$siteId/thumbnail/$imageName")
+        val file = if (thumbnail)  File("$path/$siteId/thumbnail/$thumbnailPrefix$imageName")
                    else            File("$path/$siteId/$imageName")
 
         val stream = FileInputStream(file)

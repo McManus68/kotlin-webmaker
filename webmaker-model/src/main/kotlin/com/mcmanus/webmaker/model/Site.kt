@@ -11,5 +11,7 @@ data class Site(
         var title: String,
         var description: String = "",
         var pages: List<Page> = emptyList(),
-        var footer: Footer = Footer()
+        var footer: Footer = Footer(),
+        var header: Header = Header(),
+        var theme: Theme = Theme()
 )

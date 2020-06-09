@@ -1,7 +1,7 @@
 package com.mcmanus.webmaker.model
 
-enum class FooterType {
-    FOOTER
+enum class NavType {
+    NAV_DEFAULT
 }
 
 
