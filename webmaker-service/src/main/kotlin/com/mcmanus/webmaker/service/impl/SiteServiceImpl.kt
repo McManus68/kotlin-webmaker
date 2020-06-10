@@ -20,21 +20,7 @@ class SiteServiceImpl : SiteService {
 
     override fun get(id: String): Site = repository.findById(id).get()
 
-    override fun create(site: Site): Site {
-
-        site.pages?.forEach { it.sections.forEach { section ->
-                section.rows?.forEach { row ->
-                    row.blocks?.forEach { block ->
-                        if (block.animation == null || block.animation!!.type == null) {
-                            block.animation = null
-                        }
-
-                    }
-                }
-            }
-        }
-        return repository.save(site)
-    }
+    override fun create(site: Site): Site = repository.save(site)
 
     override fun update(site: Site): Site = repository.save(site)
 
