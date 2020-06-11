@@ -1,8 +1,6 @@
 package com.mcmanus.webmaker.service.impl
 
-import com.mcmanus.webmaker.model.AnimationType
 import com.mcmanus.webmaker.model.Config
-import com.mcmanus.webmaker.model.NavType
 import com.mcmanus.webmaker.service.BlockTypeConfigService
 import com.mcmanus.webmaker.service.ConfigService
 import com.mcmanus.webmaker.service.SectionTypeConfigService
@@ -19,6 +17,6 @@ class ConfigServiceImpl : ConfigService {
     lateinit var sectionConfigService: SectionTypeConfigService
 
     override fun getAll(): Config {
-        return Config(AnimationType.values().asList(), NavType.values().asList(), blockConfigService.getAll(), sectionConfigService.getAll())
+        return Config(blockConfigService.getAll(), sectionConfigService.getAll())
     }
 }

@@ -1,7 +1,7 @@
 package com.mcmanus.webmaker.model
 
 data class Animation(
-        var type: String = "",
+        var type: AnimationType = AnimationType.NONE,
         var delay: Int = 0,
         var left: Boolean = false,
         var right: Boolean = false,
