@@ -5,6 +5,11 @@ data class Config(
         var section: List<SectionTypeConfig>,
         var animation: List<AnimationType> = AnimationType.values().asList(),
         var nav: List<NavType> = NavType.values().asList(),
-        var default: Map<String, Any> = mapOf("theme" to Theme(), "footer" to Footer(), "header" to Header())
+        var default: Map<String, Any> = mapOf(  "theme" to Theme(),
+                                                "footer" to Footer(),
+                                                "header" to Header(),
+                                                "block" to Block(),
+                                                "row" to Row(),
+                                                "section" to Section())
 )
 
