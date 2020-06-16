@@ -1,6 +1,6 @@
 package com.mcmanus.webmaker.model
 
 data class Header(
-        var nav: NavType = NavType.NAV_DEFAULT
+        var type: HeaderType = HeaderType.HEADER_CLASSIC
 )
 
